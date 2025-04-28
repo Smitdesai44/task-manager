@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Task Detail</h2>
+    <ul>
+        <li><strong>Title:</strong> {{task.title}}</li><br>
+        <li><strong>Description:</strong> {{task.description}}</li><br>
+        <li><strong>Due Date:</strong> {{task.due_date}}</li><br>
+        <li><strong>Status:</strong>
+            {% if task.is_created %}
+                <span class="badge bg-success">Completed</span>
+            {% else %}
+                <span class="badge bg-warning text-dark">Pending</span>
+            
+            {% endif %}
+        </li><br>
+    </ul>
+    <a href="{% url 'list_tasks' %}" class="btn btn-secondary">Back to List</a>
+{% endblock  %}
+
+
+
